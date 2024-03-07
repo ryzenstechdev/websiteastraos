@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+    animation: navbar__show 0.2s ease-in-out forwards;
+}
+
+nav img {
+    fill: #fff;
+    animation: petal 10s ease-in-out infinite;
+    margin: 0 32px;
+    transform: translateY(-1px);
+}
+
+nav a {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0 32px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+#hero,
+#features {
+    transition: opacity 0.1s ease-in-out;
+}
+
+#hero .hero-text {
+    z-index: 10;
+}
+
+#hero .petal-container {
+    translate: 0 -78px;
+}
+
+#features i {
+    transform: translateY(5px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Urbanist', sans-serif;
+}
+
+.petal {
+    transition: all 0.2s ease-in-out;
+    animation: ripple 0.4s ease-in-out forwards;
+}
+
+.petal:nth-child(1),
+.petal:nth-child(5) {
+    transform: scale(0.7);
+    --scale-factor: 0.7;
+    animation-delay: 0.3s;
+}
+
+.petal:nth-child(2),
+.petal:nth-child(4) {
+    transform: scale(0.8);
+    --scale-factor: 0.8;
+    animation-delay: 0.5s;
+}
+
+.petal:nth-child(3) {
+    transform: scale(1);
+    --scale-factor: 1;
+    animation-delay: 0.7s;
+}
+
+.text-semiwhite {
+    color: rgba(255, 255, 255, 0.05);
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.3);
+    font-weight: 800;
+    opacity: 0;
+    animation: draw 0.5s ease-in-out forwards;
+}
+
+@keyframes draw {
+    0% {
+        opacity: 0;
+        transform: translateY(-32px);
+        color: rgba(255, 255, 255, 0.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+        color: rgba(255, 255, 255, 0.07);
+    }
+}
+
+@keyframes navbar__show {
+    0% {
+        opacity: 0.6;
+        transform: translateY(-3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes petal {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        opacity: 0;
+        scale: 0.5;
+        rotate: 20deg;
+        translate: 0 -8px;
+        filter: blur(4px);
+    }
+
+    100% {
+        opacity: 0.5;
+        scale: var(--scale-factor);
+        rotate: 0deg;
+        translate: 0 0px;
+        filter: blur(0px);
+    }
+}
